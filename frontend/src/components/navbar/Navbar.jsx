@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { IoIosMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 import "./Navbar.css";
+import logoUltimate from "../../assets/logo_ultimate_goal.png";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,6 +33,7 @@ function Navbar() {
       onKeyDown={handleKeyDown}
       role="button"
       tabIndex={0}
+      className="navbar-mobile"
     >
       {isOpen ? (
         <RxCross2 className="cross" />
@@ -39,12 +42,20 @@ function Navbar() {
       )}
       {isOpen && (
         <div className="menu">
-          <a href="/">Accueil</a>
-          <a href="/presentation">Qui sommes-nous ?</a>
-          <a href="/formules">Nos formules</a>
-          <a href="/contact">Contactez-nous !</a>
+          <Link to="/">Accueil</Link>
+          <Link to="/presentation">Qui sommes-nous ?</Link>
+          <Link to="/formules">Nos formules</Link>
+          <Link to="/contact">Contactez-nous !</Link>
         </div>
       )}
+      <div className="logo-container">
+        <img
+          src={logoUltimate}
+          className="logo-ultimate"
+          alt="ceci est le logo de l'académie"
+          width={130}
+        />
+      </div>
     </div>
   );
 }
