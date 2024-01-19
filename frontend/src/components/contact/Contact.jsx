@@ -1,9 +1,10 @@
 import React from "react";
+import "./Contact.css";
 
 function Contact() {
   return (
     <div className="infos-contact">
-      <h1>Contactez-nous !</h1>
+      <h1 className="titre-contact">Contactez-nous !</h1>
       <p>
         N'hésitez pas à nous contacter pour avoir davantage d'informations
         concernant nos différentes formules ou toute autre information
@@ -14,14 +15,29 @@ function Contact() {
         maximum.
       </p>
       <div className="formulaire-container">
-        <input name="nom" type="text" placeholder="Votre nom" />
-        <input name="mail" type="text" placeholder="Votre adresse mail" />
-        <input
-          name="telephone"
-          type="text"
-          placeholder="Votre n° de téléphone (facultatif)"
-        />
-        <input name="message" type="text" placeholder="Votre message" />
+        <form className="form-contact">
+          <div className="contain-input">
+            <input name="nom" type="text" placeholder="Votre nom" />
+          </div>
+          <div className="contain-input">
+            <input name="mail" type="text" placeholder="Votre adresse mail" />
+          </div>
+          <div className="contain-input">
+            <input
+              name="telephone"
+              type="text"
+              placeholder="Votre n° de téléphone (facultatif)"
+            />
+          </div>
+          <div className="contain-input">
+            <input name="message" type="text" placeholder="Votre message" />
+          </div>
+          <div className="bouton-envoi">
+            <button type="submit" className="bouton-submit">
+              Envoyer
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
