@@ -1,3 +1,7 @@
+.titre-contact {
+  margin-bottom: 4%;
+}
+
 .infos-contact {
   display: flex;
   flex-direction: column;
