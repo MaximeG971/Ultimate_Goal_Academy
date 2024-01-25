@@ -26,7 +26,7 @@
   margin-top: 4%;
 }
 
-.contain-input input {
+.classic-input {
   border-radius: 5px;
   border: none;
   background: #d9be93;
@@ -35,6 +35,18 @@
   height: 28px;
   margin-bottom: 25px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.input-message {
+  border-radius: 5px;
+  border: none;
+  background: #d9be93;
+  padding: 5px 10px;
+  width: 240px;
+  height: 100px;
+  margin-bottom: 25px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  resize: none;
 }
 
 .bouton-submit {
