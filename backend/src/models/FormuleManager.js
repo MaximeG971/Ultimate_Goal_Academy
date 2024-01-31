@@ -36,7 +36,9 @@ class FormuleManager extends AbstractManager {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all formules from the "formule" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(
+      `SELECT formule.type, formule.description, coach.name AS coach_name FROM ${this.table} JOIN coach ON formule.coach_id = coach.id`
+    );
 
     // Return the array of formules
     return rows;
