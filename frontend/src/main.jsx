@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/home/Home";
 import PresentationAcademy from "./components/presentation/PresentationAcademy";
 import Formule from "./components/formules/Formule";
-import Contact from "./components/contact/Contact";
+import ContactPage from "./pages/ContactPage";
 
 import App from "./App";
 
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: <ContactPage />,
       },
     ],
   },

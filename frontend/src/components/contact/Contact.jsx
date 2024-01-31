@@ -4,7 +4,7 @@ import "./Contact.css";
 function Contact() {
   return (
     <div className="infos-contact">
-      <h1 className="titre-contact">Contactez-nous !</h1>
+      <h1 className="titre-contact">CONTACTEZ-NOUS !</h1>
       <p>
         N'hésitez pas à nous contacter pour avoir davantage d'informations
         concernant nos différentes formules ou toute autre information
@@ -17,20 +17,36 @@ function Contact() {
       <div className="formulaire-container">
         <form className="form-contact">
           <div className="contain-input">
-            <input name="nom" type="text" placeholder="Votre nom" />
-          </div>
-          <div className="contain-input">
-            <input name="mail" type="text" placeholder="Votre adresse mail" />
+            <input
+              className="classic-input"
+              name="nom"
+              type="text"
+              placeholder="Votre nom"
+            />
           </div>
           <div className="contain-input">
             <input
+              className="classic-input"
+              name="mail"
+              type="text"
+              placeholder="Votre adresse mail"
+            />
+          </div>
+          <div className="contain-input">
+            <input
+              className="classic-input"
               name="telephone"
               type="text"
               placeholder="Votre n° de téléphone (facultatif)"
             />
           </div>
           <div className="contain-input">
-            <input name="message" type="text" placeholder="Votre message" />
+            <textarea
+              className="input-message"
+              name="message"
+              type="text"
+              placeholder="Votre message"
+            />
           </div>
           <div className="bouton-envoi">
             <button type="submit" className="bouton-submit">
