@@ -1,7 +1,22 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import connexion from "../../services/connexion";
 import "./Presentation.css";
 
 function PresentationAcademy() {
+  const [coaches, setCoaches] = useState([]);
+  const coachData = async () => {
+    try {
+      const res = await connexion.get("/coachs");
+      setCoaches(res.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    coachData();
+  }, []);
+
   return (
     <div className="presentation-container">
       <h1 className="titre-principal-presentation">QUI SOMMES-NOUS ?</h1>
@@ -62,6 +77,15 @@ function PresentationAcademy() {
       </div>
       <div className="paragraphe-presentation">
         <h2 className="titre-presentation">NOTRE STAFF</h2>
+        <div className="container-staff">
+          {coaches &&
+            coaches.map((el) => (
+              <div className="carte-staff">
+                <p>Nom: {el.name}</p>
+                <p>Rôle: {el.speciality}</p>
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );
