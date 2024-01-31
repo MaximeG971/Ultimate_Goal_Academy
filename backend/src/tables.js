@@ -5,7 +5,13 @@
 // Import the manager modules responsible for handling data operations on the tables
 const ItemManager = require("./models/ItemManager");
 
+const CoachManager = require("./models/CoachManager");
+
+const FormuleManager = require("./models/FormuleManager");
+
 const managers = [
+  FormuleManager,
+  CoachManager,
   ItemManager,
   // Add other managers here
 ];
