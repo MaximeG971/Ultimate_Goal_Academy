@@ -3,6 +3,10 @@
   color: #d9be93;
 }
 
+.infos-contact p {
+  margin-bottom: 10px;
+}
+
 .infos-contact {
   display: flex;
   flex-direction: column;

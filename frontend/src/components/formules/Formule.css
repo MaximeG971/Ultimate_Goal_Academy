@@ -40,6 +40,10 @@ h3 {
   gap: 15px;
 }
 
+.infos-formule {
+  margin-bottom: 10px;
+}
+
 @media screen and (max-width: 700px) {
   .formule-container {
     width: 75%;

@@ -33,7 +33,9 @@ function Formule() {
       </div>
       <p className="infos-formule">
         Pour avoir davantage d'informations sur le contenu de nos formules ou
-        encore <br />
+        encore
+      </p>
+      <p className="infos-formule">
         sur nos tarifs, n'hésitez pas à nous envoyer un mail via notre rubrique
         "Contactez-nous !".
       </p>

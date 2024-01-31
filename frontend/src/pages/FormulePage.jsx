@@ -1,7 +1,8 @@
 import React from "react";
+import Formule from "../components/formules/Formule";
 
 function FormulePage() {
-  return <div>FormulePage</div>;
+  return <Formule />;
 }
 
 export default FormulePage;
