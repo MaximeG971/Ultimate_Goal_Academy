@@ -1,5 +1,6 @@
 .titre-contact {
   margin-bottom: 4%;
+  color: #d9be93;
 }
 
 .infos-contact {
@@ -9,6 +10,7 @@
   align-items: center;
   margin-top: 5%;
   margin-bottom: 5%;
+  text-align: center;
 }
 
 .formulaire-container {

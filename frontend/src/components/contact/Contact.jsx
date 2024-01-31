@@ -4,7 +4,7 @@ import "./Contact.css";
 function Contact() {
   return (
     <div className="infos-contact">
-      <h1 className="titre-contact">Contactez-nous !</h1>
+      <h1 className="titre-contact">CONTACTEZ-NOUS !</h1>
       <p>
         N'hésitez pas à nous contacter pour avoir davantage d'informations
         concernant nos différentes formules ou toute autre information
