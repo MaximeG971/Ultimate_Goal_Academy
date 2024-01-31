@@ -36,60 +36,60 @@ const read = async (req, res, next) => {
 
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
-const edit = async (req, res, next) => {
-  // Extract the formule data from the request body
-  const formule = req.body;
+// const edit = async (req, res, next) => {
+//   // Extract the formule data from the request body
+//   const formule = req.body;
 
-  try {
-    // Insert the formule into the database
-    await tables.formule.update(formule, req.params.id);
+//   try {
+//     // Insert the formule into the database
+//     await tables.formule.update(formule, req.params.id);
 
-    // Respond with HTTP 204 (No Content)
-    res.sendStatus(204);
-  } catch (err) {
-    // Pass any errors to the error-handling middleware
-    next(err);
-  }
-};
+//     // Respond with HTTP 204 (No Content)
+//     res.sendStatus(204);
+//   } catch (err) {
+//     // Pass any errors to the error-handling middleware
+//     next(err);
+//   }
+// };
 
 // The A of BREAD - Add (Create) operation
-const add = async (req, res, next) => {
-  // Extract the formule data from the request body
-  const formule = req.body;
+// const add = async (req, res, next) => {
+//   // Extract the formule data from the request body
+//   const formule = req.body;
 
-  try {
-    // Insert the formule into the database
-    const insertId = await tables.formule.create(formule);
+//   try {
+//     // Insert the formule into the database
+//     const insertId = await tables.formule.create(formule);
 
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted formule
-    res.status(201).json({ ...req.body, id: insertId });
-  } catch (err) {
-    // Pass any errors to the error-handling middleware
-    next(err);
-  }
-};
+//     // Respond with HTTP 201 (Created) and the ID of the newly inserted formule
+//     res.status(201).json({ ...req.body, id: insertId });
+//   } catch (err) {
+//     // Pass any errors to the error-handling middleware
+//     next(err);
+//   }
+// };
 
 // The D of BREAD - Destroy (Delete) operation
 // This operation is not yet implemented
-const destroy = async (req, res, next) => {
-  // Extract the formule data from the request body
-  try {
-    // Insert the formule into the database
-    await tables.formule.delete(req.params.id);
+// const destroy = async (req, res, next) => {
+//   // Extract the formule data from the request body
+//   try {
+//     // Insert the formule into the database
+//     await tables.formule.delete(req.params.id);
 
-    // Respond with HTTP 204 (No Content)
-    res.sendStatus(204);
-  } catch (err) {
-    // Pass any errors to the error-handling middleware
-    next(err);
-  }
-};
+//     // Respond with HTTP 204 (No Content)
+//     res.sendStatus(204);
+//   } catch (err) {
+//     // Pass any errors to the error-handling middleware
+//     next(err);
+//   }
+// };
 
 // Ready to export the controller functions
 module.exports = {
   browse,
   read,
-  edit,
-  add,
-  destroy,
+  // edit,
+  // add,
+  // destroy,
 };

@@ -9,17 +9,17 @@ class CoachManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
-  async create(coach) {
-    const { name, speciality } = coach;
-    // Execute the SQL INSERT query to add a new coach to the "coach" table
-    const [result] = await this.database.query(
-      `insert into ${this.table} (name, speciality) values (?, ?)`,
-      [name, speciality]
-    );
+  // async create(coach) {
+  //   const { name, speciality } = coach;
+  //   // Execute the SQL INSERT query to add a new coach to the "coach" table
+  //   const [result] = await this.database.query(
+  //     `insert into ${this.table} (name, speciality) values (?, ?)`,
+  //     [name, speciality]
+  //   );
 
-    // Return the ID of the newly inserted coach
-    return result.insertId;
-  }
+  // Return the ID of the newly inserted coach
+  //   return result.insertId;
+  // }
 
   // The Rs of CRUD - Read operations
 

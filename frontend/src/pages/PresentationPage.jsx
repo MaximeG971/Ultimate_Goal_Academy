@@ -1,7 +1,8 @@
 import React from "react";
+import PresentationAcademy from "../components/presentation/PresentationAcademy";
 
 function PresentationPage() {
-  return <div>PresentationPage</div>;
+  return <PresentationAcademy />;
 }
 
 export default PresentationPage;
