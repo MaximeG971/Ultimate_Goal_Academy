@@ -45,26 +45,26 @@ class CoachManager extends AbstractManager {
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing coach
 
-  async update(coach, id) {
-    // Execute the SQL INSERT query to update the row with tie id on the "coach" table
-    const result = await this.database.query(
-      `update ${this.table} set ? where id = ?`,
-      [coach, id]
-    );
+  // async update(coach, id) {
+  //   // Execute the SQL INSERT query to update the row with tie id on the "coach" table
+  //   const result = await this.database.query(
+  //     `update ${this.table} set ? where id = ?`,
+  //     [coach, id]
+  //   );
 
-    return result;
-  }
+  //   return result;
+  // }
 
   // The D of CRUD - Delete operation
   // TODO: Implement the delete operation to remove an coach by its ID
-  async delete(id) {
-    const result = await this.database.query(
-      `delete from ${this.table} where id = ?`,
-      [id]
-    );
+  // async delete(id) {
+  //   const result = await this.database.query(
+  //     `delete from ${this.table} where id = ?`,
+  //     [id]
+  //   );
 
-    return result;
-  }
+  //   return result;
+  // }
 }
 
 module.exports = CoachManager;
