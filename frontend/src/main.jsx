@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Home from "./components/home/Home";
-import PresentationAcademy from "./components/presentation/PresentationAcademy";
+import PresentationPage from "./pages/PresentationPage";
 import Formule from "./components/formules/Formule";
 import ContactPage from "./pages/ContactPage";
 
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/presentation",
-        element: <PresentationAcademy />,
+        element: <PresentationPage />,
       },
       {
         path: "/formules",
