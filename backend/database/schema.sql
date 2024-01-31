@@ -13,6 +13,7 @@ create table formule (
 
 insert into coach (name, speciality) VALUES ('Sidiki', 'Coach principal');
 insert into coach (name, speciality) VALUES ('Coco', 'Entraîneur U9 et spécifique gardiens');
+insert into coach (name, speciality) VALUES ('Ali', 'Référent Futsal');
 
 
 
