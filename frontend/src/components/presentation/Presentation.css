@@ -31,6 +31,23 @@
   padding-bottom: 10px;
 }
 
+.carte-staff {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  justify-content: center;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+.container-staff {
+  display: flex;
+  justify-content: space-around;
+}
+
 /* VERSION MOBILE */
 
 @media screen and (max-width: 700px) {
