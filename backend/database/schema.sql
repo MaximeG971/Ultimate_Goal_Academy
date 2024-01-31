@@ -1,8 +1,3 @@
-create table item (
-  id int unsigned primary key auto_increment not null,
-  title varchar(255) not null
-);
-
 create table coach (
   id int unsigned primary key auto_increment not null,
   name VARCHAR(255) NOT NULL,
@@ -15,4 +10,21 @@ create table formule (
   type VARCHAR(255) NOT NULL,
   category VARCHAR(255) NOT NULL
 );
+
+insert into coach (name, speciality) VALUES ('Sidiki', 'Coach principal')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
