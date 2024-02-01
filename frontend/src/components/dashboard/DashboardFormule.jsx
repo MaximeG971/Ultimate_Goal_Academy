@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import connexion from "../../services/connexion";
 import DeleteButton from "./DeleteButton";
+import EditButton from "./EditButton";
 
 function DashboardFormule() {
   const [formuleData, setFormuleData] = useState([]);
@@ -47,6 +48,9 @@ function DashboardFormule() {
               <td>{el.description}</td>
               <td className="button-container" aria-label="delete-button">
                 <DeleteButton onClick={() => deleteData(el.id)} />
+              </td>
+              <td className="button-container" aria-label="delete-button">
+                <EditButton />
               </td>
             </tr>
           ))}
