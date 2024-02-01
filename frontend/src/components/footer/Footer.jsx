@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Instagram from "../../assets/instagram.png";
 import TikTok from "../../assets/tiktok.png";
+import LogoUg from "../../assets/logo_ultimate_goal.png";
 
 import "./Footer.css";
 
@@ -15,6 +17,9 @@ function Footer() {
         >
           <img src={Instagram} alt="Instagram" />
         </a>
+        <Link to="/">
+          <img src={LogoUg} alt="Instagram" />
+        </Link>
         <a
           href="https://www.tiktok.com/@siditraining"
           target="_blank"
