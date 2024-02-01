@@ -5,6 +5,7 @@ const getCoachSchema = () => {
     id: Joi.number().presence("optional"),
     name: Joi.string().max(255).presence("required"),
     speciality: Joi.string().max(255).presence("required"),
+    photo: Joi.string().max(255).presence("required"),
   });
 };
 
