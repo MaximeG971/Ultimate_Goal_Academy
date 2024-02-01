@@ -37,7 +37,7 @@ function Admin() {
       await connexion.post(`/login`, credentials);
       showToastMessage();
       setTimeout(() => {
-        navigate("/");
+        navigate("/admin/dashboard");
       }, 3000);
     } catch (error) {
       showToastErrorMessage(error);
