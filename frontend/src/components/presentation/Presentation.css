@@ -4,6 +4,7 @@
   align-items: center;
   margin-top: 5%;
   line-height: 1.5;
+  margin-bottom: 100px;
 }
 
 .titre-principal-presentation {
@@ -63,6 +64,10 @@
 /* VERSION MOBILE */
 
 @media screen and (max-width: 700px) {
+  .presentation-container {
+    margin-bottom: 200px;
+  }
+
   .paragraphe-presentation {
     width: 75%;
     padding: 10px;

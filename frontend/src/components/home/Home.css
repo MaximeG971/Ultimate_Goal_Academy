@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 50px;
+  margin-bottom: 100px;
 }
 
 .cartes-container {
@@ -61,6 +62,7 @@
   .accueil-contact {
     display: flex;
     flex-direction: column;
+    margin-bottom: 100px;
   }
 
   .accueil-img {
