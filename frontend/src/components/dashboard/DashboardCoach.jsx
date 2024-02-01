@@ -30,6 +30,7 @@ function DashboardCoach() {
 
   return (
     <div className="dashboard-coach">
+      <h1>Gestion des coachs</h1>
       <table className="table">
         <thead>
           <tr className="titre-table">
@@ -37,7 +38,8 @@ function DashboardCoach() {
             <th>Nom</th>
             <th>Spécialité</th>
             <th>Photo</th>
-            <th>Delete</th>
+            <th>Supprimer</th>
+            <th>Modifier</th>
           </tr>
         </thead>
         <tbody>

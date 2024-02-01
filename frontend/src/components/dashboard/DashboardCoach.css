@@ -1,7 +1,17 @@
 .dashboard-coach {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
   width: 100vw;
+}
+
+.dashboard-coach h1 {
+  margin-bottom: 20px;
+}
+
+.dashboard-coach h1,
+th {
+  color: #d9be93;
 }

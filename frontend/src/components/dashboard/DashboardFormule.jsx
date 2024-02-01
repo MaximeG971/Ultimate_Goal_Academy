@@ -28,6 +28,7 @@ function DashboardFormule() {
 
   return (
     <div className="dashboard-coach">
+      <h1>Gestion des formules</h1>
       <table className="table">
         <thead>
           <tr className="title-table">
@@ -35,6 +36,7 @@ function DashboardFormule() {
             <th>Type</th>
             <th>Description</th>
             <th>Delete</th>
+            <th>Modifier</th>
           </tr>
         </thead>
         <tbody>
