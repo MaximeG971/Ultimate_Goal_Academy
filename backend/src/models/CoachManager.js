@@ -57,14 +57,14 @@ class CoachManager extends AbstractManager {
 
   // The D of CRUD - Delete operation
   // TODO: Implement the delete operation to remove an coach by its ID
-  // async delete(id) {
-  //   const result = await this.database.query(
-  //     `delete from ${this.table} where id = ?`,
-  //     [id]
-  //   );
+  async delete(id) {
+    const result = await this.database.query(
+      `delete from ${this.table} where id = ?`,
+      [id]
+    );
 
-  //   return result;
-  // }
+    return result;
+  }
 }
 
 module.exports = CoachManager;

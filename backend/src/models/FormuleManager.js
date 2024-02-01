@@ -37,7 +37,7 @@ class FormuleManager extends AbstractManager {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all formules from the "formule" table
     const [rows] = await this.database.query(
-      `SELECT formule.type, formule.description, coach.name AS coach_name FROM ${this.table} JOIN coach ON formule.coach_id = coach.id`
+      `SELECT formule.id, formule.type, formule.description, coach.name AS coach_name FROM ${this.table} JOIN coach ON formule.coach_id = coach.id`
     );
 
     // Return the array of formules
@@ -59,14 +59,14 @@ class FormuleManager extends AbstractManager {
 
   // The D of CRUD - Delete operation
   // TODO: Implement the delete operation to remove an formule by its ID
-  // async delete(id) {
-  //   const result = await this.database.query(
-  //     `delete from ${this.table} where id = ?`,
-  //     [id]
-  //   );
+  async delete(id) {
+    const result = await this.database.query(
+      `delete from ${this.table} where id = ?`,
+      [id]
+    );
 
-  //   return result;
-  // }
+    return result;
+  }
 }
 
 module.exports = FormuleManager;
