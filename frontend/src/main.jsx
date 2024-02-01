@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import PresentationPage from "./pages/PresentationPage";
 import FormulePage from "./pages/FormulePage";
 import ContactPage from "./pages/ContactPage";
+import Admin from "./components/admin/Admin";
 
 import App from "./App";
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         element: <ContactPage />,
       },
     ],
+  },
+  {
+    path: "/admin",
+    element: <Admin />,
   },
 ]);
 
