@@ -83,6 +83,11 @@ function PresentationAcademy() {
               <div className="carte-staff" key={el.speciality}>
                 <p>Nom: {el.name}</p>
                 <p>Rôle: {el.speciality}</p>
+                <img
+                  src={el.photo}
+                  alt="portrait coach"
+                  className="portrait-coach"
+                />
               </div>
             ))}
         </div>
