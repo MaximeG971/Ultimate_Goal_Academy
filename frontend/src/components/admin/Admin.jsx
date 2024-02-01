@@ -4,6 +4,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import connexion from "../../services/connexion";
 
+import "./Admin.css";
+
 const user = { email: "", password: "" };
 
 function Admin() {
@@ -44,35 +46,38 @@ function Admin() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleRequest} className="form-contact">
-        <div className="contain-input">
-          <input
-            className="classic-input"
-            name="email"
-            type="email"
-            placeholder="Votre adresse mail"
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="contain-input">
-          <input
-            className="classic-input"
-            name="password"
-            type="password"
-            placeholder="Votre mot de passe"
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="bouton-connexion">
-          <button type="submit" className="bouton-submit-connexion">
-            Se connecter
-          </button>
-        </div>
-      </form>
-      <ToastContainer />
+    <div className="login-page">
+      <div className="login-container">
+        <h1 className="titre-login">Espace de connexion</h1>
+        <form onSubmit={handleRequest} className="form-login">
+          <div className="contain-input-login">
+            <input
+              className="input-login"
+              name="email"
+              type="email"
+              placeholder="Votre adresse mail"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="contain-input-login">
+            <input
+              className="input-login"
+              name="password"
+              type="password"
+              placeholder="Votre mot de passe"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="bouton-connexion">
+            <button type="submit" className="bouton-submit-connexion">
+              Se connecter
+            </button>
+          </div>
+        </form>
+        <ToastContainer />
+      </div>
     </div>
   );
 }
