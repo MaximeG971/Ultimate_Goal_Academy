@@ -9,6 +9,8 @@ import FormulePage from "./pages/FormulePage";
 import ContactPage from "./pages/ContactPage";
 import Admin from "./components/admin/Admin";
 import Dashboard from "./components/dashboard/Dashboard";
+import DashboardCoach from "./components/dashboard/DashboardCoach";
+import DashboardFormule from "./components/dashboard/DashboardFormule";
 
 import App from "./App";
 
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
   {
     path: "/admin/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/admin/dashboard/coach",
+    element: <DashboardCoach />,
+  },
+  {
+    path: "/admin/dashboard/formule",
+    element: <DashboardFormule />,
   },
 ]);
 
