@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Home from "./components/home/Home";
+import HomePage from "./pages/HomePage";
 import PresentationPage from "./pages/PresentationPage";
-import Formule from "./components/formules/Formule";
+import FormulePage from "./pages/FormulePage";
 import ContactPage from "./pages/ContactPage";
 
 import App from "./App";
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <HomePage />,
       },
       {
         path: "/presentation",
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/formules",
-        element: <Formule />,
+        element: <FormulePage />,
       },
       {
         path: "/contact",

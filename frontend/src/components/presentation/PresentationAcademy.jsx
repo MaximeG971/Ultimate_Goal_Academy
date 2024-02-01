@@ -80,7 +80,7 @@ function PresentationAcademy() {
         <div className="container-staff">
           {coaches &&
             coaches.map((el) => (
-              <div className="carte-staff">
+              <div className="carte-staff" key={el.speciality}>
                 <p>Nom: {el.name}</p>
                 <p>Rôle: {el.speciality}</p>
               </div>
