@@ -22,20 +22,11 @@ insert into formule (type, description, coach_id) VALUES ('Formule individuelle'
 insert into formule (type, description, coach_id) VALUES ('Formule collective', "Séances collectives par petits groupes sous forme d'ateliers", 1);
 insert into formule (type, description, coach_id) VALUES ('Formule combinée', "Packaging séances individuelles et collectives", 1);
 
+create table user (
+  id int unsigned primary key auto_increment not null,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL
+);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+insert into user (email, password) VALUES ('admin@admin.com', 'admin123');
 

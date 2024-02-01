@@ -1,0 +1,32 @@
+.page-accueil-admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.accueil-admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.titre-accueil-admin {
+  color: #d9be93;
+  margin-bottom: 50px;
+}
+
+.cartes-admin {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.cartes-admin img {
+  width: 300px;
+  height: 400px;
+  border-radius: 15px;
+}

@@ -9,7 +9,10 @@ const CoachManager = require("./models/CoachManager");
 
 const FormuleManager = require("./models/FormuleManager");
 
+const UserManager = require("./models/UserManager");
+
 const managers = [
+  UserManager,
   FormuleManager,
   CoachManager,
   ItemManager,
