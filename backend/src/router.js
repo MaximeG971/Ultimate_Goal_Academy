@@ -2,6 +2,19 @@ const express = require("express");
 
 const router = express.Router();
 
+/* **************************** USER *********************************** */
+
+const userControllers = require("./controllers/userControllers");
+const validateUser = require("./validators/validateUser");
+
+router.get("/users", userControllers.browse);
+router.get("/users/:id", userControllers.read);
+router.post("/users", validateUser, userControllers.add);
+router.post("/login", userControllers.log);
+
+// router.put("/users/:id", validateUser, userControllers.edit);
+// router.delete("/users/:id", userControllers.destroy);
+
 /* **************************** FORMULE *********************************** */
 
 const formuleControllers = require("./controllers/formuleControllers");
