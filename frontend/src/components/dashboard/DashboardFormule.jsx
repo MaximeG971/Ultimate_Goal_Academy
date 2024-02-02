@@ -1,9 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import connexion from "../../services/connexion";
 import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
+import { AuthContext } from "../../context/Auth";
 
 function DashboardFormule() {
+  const { connected } = useContext(AuthContext);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (connected.id === 0) {
+      navigate("/");
+    }
+  }, [connected]);
+
   const [formuleData, setFormuleData] = useState([]);
   const [formuleValue, setFormuleValue] = useState({
     type: "",
@@ -11,6 +21,7 @@ function DashboardFormule() {
     coach_id: "",
   });
   const [coachValue, setCoachValue] = useState([]);
+  const [change, setChange] = useState(false);
 
   const getFormules = async () => {
     try {
@@ -38,10 +49,11 @@ function DashboardFormule() {
     }));
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       const response = await connexion.post(`/formules`, formuleValue);
-
+      setChange(!change);
       if (response.status === 201) {
         console.info("Données enregistrées !");
       } else {
@@ -61,7 +73,7 @@ function DashboardFormule() {
   useEffect(() => {
     getFormules();
     getCoachs();
-  }, []);
+  }, [change]);
 
   const deleteData = (id) => {
     try {
@@ -75,10 +87,11 @@ function DashboardFormule() {
     setFormuleValue(formuleToUpdate);
   };
 
-  const putFormule = async () => {
+  const putFormule = async (e) => {
+    e.preventDefault();
     try {
       await connexion.put(`/formules/${formuleValue.id}`, formuleValue);
-      getFormules();
+      setChange(!change);
     } catch (error) {
       console.error(error);
     }

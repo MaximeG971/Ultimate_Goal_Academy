@@ -81,7 +81,7 @@ const log = async (req, res, next) => {
       //   req.body.password
       // );
       if (login.password === req.body.password) {
-        res.status(201).json({ ...req.body, id: login.id });
+        res.status(201).json({ ...req.body, id: login.id, email: login.email });
       } else {
         res.sendStatus(403);
       }

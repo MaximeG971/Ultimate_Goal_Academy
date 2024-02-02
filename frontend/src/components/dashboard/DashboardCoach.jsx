@@ -1,17 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import connexion from "../../services/connexion";
 import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
+import { AuthContext } from "../../context/Auth";
 
 import "./DashboardCoach.css";
 
 function DashboardCoach() {
+  const { connected } = useContext(AuthContext);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (connected.id === 0) {
+      navigate("/");
+    }
+  }, [connected]);
+
   const [coachData, setCoachData] = useState([]);
   const [coachValue, setCoachValue] = useState({
     name: "",
     speciality: "",
     photo: "",
   });
+  const [change, setChange] = useState(false);
 
   const getCoaches = async () => {
     try {
@@ -30,10 +41,11 @@ function DashboardCoach() {
     }));
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       const response = await connexion.post(`/coachs`, coachValue);
-
+      setChange(!change);
       if (response.status === 201) {
         console.info("Données enregistrées !");
       } else {
@@ -52,7 +64,7 @@ function DashboardCoach() {
 
   useEffect(() => {
     getCoaches();
-  }, []);
+  }, [change]);
 
   const deleteData = (id) => {
     try {
@@ -66,10 +78,11 @@ function DashboardCoach() {
     setCoachValue(coachToUpdate);
   };
 
-  const putCoach = async () => {
+  const putCoach = async (e) => {
+    e.preventDefault();
     try {
       await connexion.put(`/coachs/${coachValue.id}`, coachValue);
-      getCoaches();
+      setChange(!change);
     } catch (error) {
       console.error(error);
     }

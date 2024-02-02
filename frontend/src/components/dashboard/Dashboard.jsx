@@ -1,11 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import CoachAdmin from "../../assets/coach-admin.jpeg";
 import FormuleAdmin from "../../assets/formule-admin.jpeg";
+import { AuthContext } from "../../context/Auth";
 
 import "./Dashboard.css";
 
 function Dashboard() {
+  const { connected } = useContext(AuthContext);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (connected.id === 0) {
+      navigate("/");
+    }
+  }, [connected]);
+
   return (
     <div className="page-accueil-admin">
       <div className="accueil-admin">

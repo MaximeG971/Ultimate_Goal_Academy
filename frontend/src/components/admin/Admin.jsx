@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import connexion from "../../services/connexion";
 
 import "./Admin.css";
+import { AuthContext } from "../../context/Auth";
 
 const user = { email: "", password: "" };
 
 function Admin() {
   const [credentials, setCredentials] = useState(user);
+  const { setConnected } = useContext(AuthContext);
+
   const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +37,10 @@ function Admin() {
   const handleRequest = async (e) => {
     e.preventDefault();
     try {
-      await connexion.post(`/login`, credentials);
+      await connexion
+        .post(`/login`, credentials)
+        .then((res) => setConnected(res.data));
+
       showToastMessage();
       setTimeout(() => {
         navigate("/admin/dashboard");

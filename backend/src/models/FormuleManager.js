@@ -48,7 +48,7 @@ class FormuleManager extends AbstractManager {
 
   async update(formule, id) {
     // Execute the SQL INSERT query to update the row with tie id on the "formule" table
-    const result = await this.database.query(
+    const [result] = await this.database.query(
       `update ${this.table} set type = ?, description = ?, coach_id = ? where id = ?`,
       [formule.type, formule.description, formule.coach_id, id]
     );
