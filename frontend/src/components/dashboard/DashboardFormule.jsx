@@ -8,12 +8,23 @@ function DashboardFormule() {
   const [formuleValue, setFormuleValue] = useState({
     type: "",
     description: "",
+    coach_id: "",
   });
+  const [coachValue, setCoachValue] = useState([]);
 
   const getFormules = async () => {
     try {
       const res = await connexion.get(`/formules`);
       setFormuleData(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getCoachs = async () => {
+    try {
+      const res = await connexion.get(`/coachs`);
+      setCoachValue(res.data);
     } catch (error) {
       console.error(error);
     }
@@ -49,6 +60,7 @@ function DashboardFormule() {
 
   useEffect(() => {
     getFormules();
+    getCoachs();
   }, []);
 
   const deleteData = (id) => {
@@ -63,9 +75,9 @@ function DashboardFormule() {
     setFormuleValue(formuleToUpdate);
   };
 
-  const putCoach = async () => {
+  const putFormule = async () => {
     try {
-      await connexion.put(`/coachs/${formuleValue.id}`, formuleValue);
+      await connexion.put(`/formules/${formuleValue.id}`, formuleValue);
       getFormules();
     } catch (error) {
       console.error(error);
@@ -74,7 +86,7 @@ function DashboardFormule() {
 
   const handleRequest = (event) => {
     if (formuleValue.id) {
-      putCoach(event);
+      putFormule(event);
     } else {
       handleSubmit(event);
     }
@@ -83,72 +95,79 @@ function DashboardFormule() {
   return (
     <div className="dashboard-coach">
       <h1>Gestion des formules</h1>
-      <div className="formulaire-crud-formule">
-        <form onSubmit={handleRequest} className="form-formule">
-          <label>
-            Type de formule
-            <input
-              type="text"
-              name="type"
-              value={formuleValue.type}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Description
-            <input
-              type="text"
-              name="description"
-              value={formuleValue.description}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Coach
-            <input
-              type="text"
-              name="coachId"
-              value={formuleValue.coach_id}
-              onChange={handleChange}
-              required
-            />
-          </label>
-
-          <div className="container-submit-formule">
-            <button type="submit" className="bouton-submit-formule">
-              {formuleValue.id ? "Modifier" : "Ajouter"}
-            </button>
-          </div>
-        </form>
-      </div>
-      <table className="table">
-        <thead>
-          <tr className="title-table">
-            <th>#</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Delete</th>
-            <th>Modifier</th>
-          </tr>
-        </thead>
-        <tbody>
-          {formuleData.map((el) => (
-            <tr key={el.description}>
-              <td>{el.id}</td>
-              <td>{el.type}</td>
-              <td>{el.description}</td>
-              <td className="button-container" aria-label="delete-button">
-                <DeleteButton onClick={() => deleteData(el.id)} />
-              </td>
-              <td className="button-container" aria-label="delete-button">
-                <EditButton onClick={() => loadFormule(el)} />
-              </td>
+      <div className="tableau-form">
+        <table className="table">
+          <thead>
+            <tr className="titre-table">
+              <th>#</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Coach</th>
+              <th>Delete</th>
+              <th>Modifier</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {formuleData.map((el) => (
+              <tr key={el.description}>
+                <td>{el.id}</td>
+                <td>{el.type}</td>
+                <td>{el.description}</td>
+                <td>{el.coach_name}</td>
+                <td className="button-container" aria-label="delete-button">
+                  <DeleteButton onClick={() => deleteData(el.id)} />
+                </td>
+                <td className="button-container" aria-label="delete-button">
+                  <EditButton onClick={() => loadFormule(el)} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div className="formulaire-crud-coach">
+          <form onSubmit={handleRequest} className="form-coach">
+            <label>
+              Type de formule
+              <input
+                type="text"
+                name="type"
+                value={formuleValue.type}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <label>
+              Description
+              <input
+                type="text"
+                name="description"
+                value={formuleValue.description}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <label>
+              Coach
+              <select name="coach_id" onChange={handleChange}>
+                <option>Choisir un coach</option>
+                {coachValue.map((coach) => {
+                  return (
+                    <option value={coach.id} key={coach.id}>
+                      {coach.name}
+                    </option>
+                  );
+                })}
+              </select>
+            </label>
+
+            <div className="container-submit-formule">
+              <button type="submit" className="bouton-submit-coach">
+                {formuleValue.id ? "Modifier" : "Ajouter"}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

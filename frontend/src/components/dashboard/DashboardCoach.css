@@ -5,6 +5,11 @@
   justify-content: center;
   height: 100vh;
   width: 100vw;
+  padding: 0 20px;
+}
+
+.table {
+  text-align: center;
 }
 
 .dashboard-coach h1 {
@@ -14,4 +19,62 @@
 .dashboard-coach h1,
 th {
   color: #d9be93;
+}
+
+.titre-table th {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.241);
+}
+
+.tableau-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+
+.form-coach {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 5%;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
+  gap: 20px;
+  padding: 20px;
+}
+
+.form-coach input {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 10px;
+  justify-content: end;
+}
+
+.bouton-submit-coach {
+  padding: 1em 1em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.bouton-submit-coach:hover {
+  background-color: #d9be93;
+  box-shadow: 0px 5px 5px #d9be93;
+  color: #fff;
 }

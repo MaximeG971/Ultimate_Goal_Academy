@@ -5,7 +5,8 @@ const getFormuleSchema = () => {
     id: Joi.number().presence("optional"),
     type: Joi.string().max(255).presence("required"),
     description: Joi.string().max(255).presence("required"),
-    coach_id: Joi.number().max(255).presence("required"),
+    coach_id: Joi.string().max(255).presence("required"),
+    coach_name: Joi.string().max(255).presence("optional"),
   });
 };
 
