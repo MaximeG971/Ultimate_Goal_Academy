@@ -18,12 +18,12 @@ router.post("/login", userControllers.log);
 /* **************************** FORMULE *********************************** */
 
 const formuleControllers = require("./controllers/formuleControllers");
-// const validateFormule = require("./validators/validateFormule");
+const validateFormule = require("./validators/validateFormule");
 
 router.get("/formules", formuleControllers.browse);
 router.get("/formules/:id", formuleControllers.read);
-// router.post("/formules", validateFormule, formuleControllers.add);
-// router.put("/formules/:id", validateFormule, formuleControllers.edit);
+router.post("/formules", validateFormule, formuleControllers.add);
+router.put("/formules/:id", validateFormule, formuleControllers.edit);
 router.delete("/formules/:id", formuleControllers.destroy);
 
 /* **************************** COACH *********************************** */

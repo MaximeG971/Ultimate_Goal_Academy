@@ -9,17 +9,16 @@ class FormuleManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
-  // async create(formule) {
-  //   const { type, category } = formule;
-  //   // Execute the SQL INSERT query to add a new formule to the "formule" table
-  //   const [result] = await this.database.query(
-  //     `insert into ${this.table} (type, category) values (?, ?)`,
-  //     [type, category]
-  //   );
+  async create(formule) {
+    // Execute the SQL INSERT query to add a new formule to the "formule" table
+    const [result] = await this.database.query(
+      `insert into ${this.table} (type, description, coach_id) values (?, ?, ?)`,
+      [formule.type, formule.description, formule.coach_id]
+    );
 
-  //   // Return the ID of the newly inserted formule
-  //   return result.insertId;
-  // }
+    // Return the ID of the newly inserted formule
+    return result.insertId;
+  }
 
   // The Rs of CRUD - Read operations
 
@@ -47,15 +46,15 @@ class FormuleManager extends AbstractManager {
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing formule
 
-  // async update(formule, id) {
-  //   // Execute the SQL INSERT query to update the row with tie id on the "formule" table
-  //   const result = await this.database.query(
-  //     `update ${this.table} set ? where id = ?`,
-  //     [formule, id]
-  //   );
+  async update(formule, id) {
+    // Execute the SQL INSERT query to update the row with tie id on the "formule" table
+    const result = await this.database.query(
+      `update ${this.table} set type = ?, description = ?, coach_id = ? where id = ?`,
+      [formule.type, formule.description, formule.coach_id, id]
+    );
 
-  //   return result;
-  // }
+    return result.affectedRows;
+  }
 
   // The D of CRUD - Delete operation
   // TODO: Implement the delete operation to remove an formule by its ID
