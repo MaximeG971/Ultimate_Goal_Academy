@@ -109,7 +109,7 @@ function DashboardCoach() {
             />
           </label>
           <label>
-            Spécialité
+            Photo (URL)
             <input
               type="text"
               name="photo"

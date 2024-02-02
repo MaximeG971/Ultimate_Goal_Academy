@@ -89,7 +89,7 @@ function DashboardFormule() {
             Type de formule
             <input
               type="text"
-              name="name"
+              name="type"
               value={formuleValue.type}
               onChange={handleChange}
               required
@@ -101,6 +101,16 @@ function DashboardFormule() {
               type="text"
               name="description"
               value={formuleValue.description}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>
+            Coach
+            <input
+              type="text"
+              name="coachId"
+              value={formuleValue.coach_id}
               onChange={handleChange}
               required
             />
