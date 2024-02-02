@@ -1,10 +1,10 @@
-// import "./DeleteButton.css";
 import PropTypes from "prop-types";
+import "./DeleteButton.css";
 
 function DeleteButton({ onClick }) {
   return (
     <button type="button" className="delete-button" onClick={onClick}>
-      Delete
+      Supprimer
     </button>
   );
 }

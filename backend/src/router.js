@@ -18,23 +18,23 @@ router.post("/login", userControllers.log);
 /* **************************** FORMULE *********************************** */
 
 const formuleControllers = require("./controllers/formuleControllers");
-// const validateFormule = require("./validators/validateFormule");
+const validateFormule = require("./validators/validateFormule");
 
 router.get("/formules", formuleControllers.browse);
 router.get("/formules/:id", formuleControllers.read);
-// router.post("/formules", validateFormule, formuleControllers.add);
-// router.put("/formules/:id", validateFormule, formuleControllers.edit);
+router.post("/formules", validateFormule, formuleControllers.add);
+router.put("/formules/:id", validateFormule, formuleControllers.edit);
 router.delete("/formules/:id", formuleControllers.destroy);
 
 /* **************************** COACH *********************************** */
 
 const coachControllers = require("./controllers/coachControllers");
-// const validateCoach = require("./validators/validateCoach");
+const validateCoach = require("./validators/validateCoach");
 
 router.get("/coachs", coachControllers.browse);
 router.get("/coachs/:id", coachControllers.read);
-// router.post("/coachs", validateCoach, coachControllers.add);
-// router.put("/coachs/:id", validateCoach, coachControllers.edit);
+router.post("/coachs", validateCoach, coachControllers.add);
+router.put("/coachs/:id", validateCoach, coachControllers.edit);
 router.delete("/coachs/:id", coachControllers.destroy);
 
 /* ************************************************************************* */

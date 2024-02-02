@@ -13,6 +13,7 @@ import DashboardCoach from "./components/dashboard/DashboardCoach";
 import DashboardFormule from "./components/dashboard/DashboardFormule";
 
 import App from "./App";
+import AuthProvider from "./context/Auth";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

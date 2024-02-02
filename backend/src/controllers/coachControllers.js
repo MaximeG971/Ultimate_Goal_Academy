@@ -36,38 +36,40 @@ const read = async (req, res, next) => {
 
 // // The E of BREAD - Edit (Update) operation
 // // This operation is not yet implemented
-// const edit = async (req, res, next) => {
-//   // Extract the coach data from the request body
-//   const coach = req.body;
+const edit = async (req, res, next) => {
+  // Extract the coach data from the request body
+  const coach = req.body;
 
-//   try {
-//     // Insert the coach into the database
-//     await tables.coach.update(coach, req.params.id);
-
-//     // Respond with HTTP 204 (No Content)
-//     res.sendStatus(204);
-//   } catch (err) {
-//     // Pass any errors to the error-handling middleware
-//     next(err);
-//   }
-// };
+  try {
+    // Insert the coach into the database
+    const result = await tables.coach.update(coach, req.params.id);
+    // Respond with HTTP 204 (No Content)
+    if (result === 1) {
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 
 // // The A of BREAD - Add (Create) operation
-// const add = async (req, res, next) => {
-//   // Extract the coach data from the request body
-//   const coach = req.body;
+const add = async (req, res, next) => {
+  // Extract the coach data from the request body
+  const coach = req.body;
 
-//   try {
-//     // Insert the coach into the database
-//     const insertId = await tables.coach.create(coach);
+  try {
+    // Insert the coach into the database
+    const insertId = await tables.coach.create(coach);
 
-//     // Respond with HTTP 201 (Created) and the ID of the newly inserted coach
-//     res.status(201).json({ ...req.body, id: insertId });
-//   } catch (err) {
-//     // Pass any errors to the error-handling middleware
-//     next(err);
-//   }
-// };
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted coach
+    res.status(201).json({ insertId });
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 
 // The D of BREAD - Destroy (Delete) operation
 // This operation is not yet implemented
@@ -89,7 +91,7 @@ const destroy = async (req, res, next) => {
 module.exports = {
   browse,
   read,
-  // edit,
-  // add,
+  edit,
+  add,
   destroy,
 };

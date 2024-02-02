@@ -9,17 +9,16 @@ class CoachManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
-  // async create(coach) {
-  //   const { name, speciality } = coach;
-  //   // Execute the SQL INSERT query to add a new coach to the "coach" table
-  //   const [result] = await this.database.query(
-  //     `insert into ${this.table} (name, speciality) values (?, ?)`,
-  //     [name, speciality]
-  //   );
+  async create(coach) {
+    // Execute the SQL INSERT query to add a new coach to the "coach" table
+    const [result] = await this.database.query(
+      `insert into ${this.table} (name, speciality, photo) values (?, ?, ?)`,
+      [coach.name, coach.speciality, coach.photo]
+    );
 
-  // Return the ID of the newly inserted coach
-  //   return result.insertId;
-  // }
+    // Return the ID of the newly inserted coach
+    return result.insertId;
+  }
 
   // The Rs of CRUD - Read operations
 
@@ -45,15 +44,15 @@ class CoachManager extends AbstractManager {
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing coach
 
-  // async update(coach, id) {
-  //   // Execute the SQL INSERT query to update the row with tie id on the "coach" table
-  //   const result = await this.database.query(
-  //     `update ${this.table} set ? where id = ?`,
-  //     [coach, id]
-  //   );
+  async update(coach, id) {
+    // Execute the SQL INSERT query to update the row with tie id on the "coach" table
+    const [result] = await this.database.query(
+      `update ${this.table} set name = ?, speciality = ?, photo = ? where id = ?`,
+      [coach.name, coach.speciality, coach.photo, id]
+    );
 
-  //   return result;
-  // }
+    return result.affectedRows;
+  }
 
   // The D of CRUD - Delete operation
   // TODO: Implement the delete operation to remove an coach by its ID
