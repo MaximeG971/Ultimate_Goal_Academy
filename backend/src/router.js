@@ -29,12 +29,12 @@ router.delete("/formules/:id", formuleControllers.destroy);
 /* **************************** COACH *********************************** */
 
 const coachControllers = require("./controllers/coachControllers");
-// const validateCoach = require("./validators/validateCoach");
+const validateCoach = require("./validators/validateCoach");
 
 router.get("/coachs", coachControllers.browse);
 router.get("/coachs/:id", coachControllers.read);
-// router.post("/coachs", validateCoach, coachControllers.add);
-// router.put("/coachs/:id", validateCoach, coachControllers.edit);
+router.post("/coachs", validateCoach, coachControllers.add);
+router.put("/coachs/:id", validateCoach, coachControllers.edit);
 router.delete("/coachs/:id", coachControllers.destroy);
 
 /* ************************************************************************* */
